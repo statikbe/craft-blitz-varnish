@@ -1,0 +1,36 @@
+{
+  "name": "statikbe/craft-blitz-varnish",
+  "description": "Varnish Cache purger for the Blitz plugin for Craft CMS.",
+  "version": "1.0.0",
+  "type": "blitz-purger",
+  "license": "proprietary",
+  "keywords": [
+    "craft",
+    "cms",
+    "craftcms",
+    "plugin",
+    "cache",
+    "blitz",
+    "purger"
+  ],
+  "require": {
+    "craftcms/cms": "^4.0.0",
+    "putyourlightson/craft-blitz": "^4.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "statikbe\\blitzvarnish\\": "src/"
+    }
+  },
+  "support": {
+    "docs": "https://github.com/statikbe/craft-blitz-varnish",
+    "source": "https://github.com/statikbe/craft-blitz-varnish",
+    "issues": "https://github.com/statikbe/craft-blitz-varnish/issues"
+  },
+  "extra": {
+    "name": "Blitz Varnish Purger",
+    "developer": "StatikBe",
+    "developerUrl": "https://github.com/statikbe",
+    "changelogUrl": "https://raw.githubusercontent.com/statikbe/craft-blitz-varnish/main/CHANGELOG.md"
+  }
+}
