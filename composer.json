@@ -1,7 +1,7 @@
 {
   "name": "statikbe/craft-blitz-varnish",
   "description": "Varnish Cache purger for the Blitz plugin for Craft CMS.",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.1",
   "type": "blitz-purger",
   "license": "proprietary",
   "keywords": [
