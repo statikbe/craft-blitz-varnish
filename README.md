@@ -1,4 +1,4 @@
-# Blitz KeyCDN Purger for Craft CMS
+# Blitz Varnish Purger for Craft CMS
 
 The Varnish Cache Purger allows the [Blitz](https://putyourlightson.com/plugins/blitz) plugin for [Craft CMS](https://craftcms.com/) to intelligently purge cached pages on connected Varnish servers.
 
