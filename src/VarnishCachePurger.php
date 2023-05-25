@@ -134,7 +134,6 @@ class VarnishCachePurger extends BaseCachePurger
                 if ($reason instanceof RequestException) {
                     /** RequestException $reason */
                     preg_match('/^(.*?)\R/', $reason->getMessage(), $matches);
-
                     if (!empty($matches[1])) {
                         Blitz::$plugin->log(trim($matches[1], ':'), [], Logger::LEVEL_ERROR);
                     }
