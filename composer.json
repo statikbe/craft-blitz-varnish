@@ -3,7 +3,7 @@
   "description": "Varnish Cache purger for the Blitz plugin for Craft CMS.",
   "version": "1.0.0",
   "type": "craft-plugin",
-  "license": "proprietary",
+  "license": "mit",
   "keywords": [
     "craft",
     "cms",
