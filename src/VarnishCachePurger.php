@@ -20,7 +20,7 @@ class VarnishCachePurger extends BaseCachePurger
      */
     public static function displayName(): string
     {
-        return \Craft::t('blitz', 'Varnish Cache purger');
+        return Craft::t('blitz', 'Varnish Cache purger');
     }
 
     /**
@@ -94,7 +94,7 @@ class VarnishCachePurger extends BaseCachePurger
         $groupedSiteUris = SiteUriHelper::getSiteUrisGroupedBySite($siteUris);
 
         foreach ($groupedSiteUris as $siteId => $siteUriGroup) {
-            $this->_sendRequest('PURGE', $siteId,
+            $this->_sendRequest($siteId,
                 SiteUriHelper::getUrlsFromSiteUris($siteUriGroup)
             );
 
@@ -107,30 +107,31 @@ class VarnishCachePurger extends BaseCachePurger
         }
     }
 
-    private function _sendRequest($method = "PURGE", $siteId, $urls = [])
+    private function _sendRequest($siteId, $urls = []): void
     {
+        $requests = [];
+
         if (!empty($urls)) {
             $batches = array_chunk($urls, 25);
 
             foreach ($batches as $batch) {
                 foreach ($batch as $uri) {
-                    $requests[] = new Request($method, $uri, []);
+                    $requests[] = new Request('PURGE', $uri, []);
                 }
             }
         }
 
-        $site = \Craft::$app->getSites()->getSiteById($siteId);
+        $site = Craft::$app->getSites()->getSiteById($siteId);
         $client = Craft::createGuzzleClient([
             'base_uri' => $site->getBaseUrl(),
         ]);
 
-
         // Create a pool of requests
         $pool = new Pool($client, $requests, [
-            'fulfilled' => function () use (&$response) {
+            'fulfilled' => function() use (&$response) {
                 $response = true;
             },
-            'rejected' => function ($reason) {
+            'rejected' => function($reason) {
                 if ($reason instanceof RequestException) {
                     /** RequestException $reason */
                     preg_match('/^(.*?)\R/', $reason->getMessage(), $matches);
@@ -143,7 +144,5 @@ class VarnishCachePurger extends BaseCachePurger
 
         // Initiate the transfers and wait for the pool of requests to complete
         $pool->promise()->wait();
-
-        return $response;
     }
 }

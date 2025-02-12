@@ -1,7 +1,7 @@
 {
   "name": "statikbe/craft-blitz-varnish",
   "description": "Varnish Cache purger for the Blitz plugin for Craft CMS.",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "type": "craft-plugin",
   "license": "mit",
   "keywords": [
@@ -14,8 +14,8 @@
     "purger"
   ],
   "require": {
-    "craftcms/cms": "^4.0.0",
-    "putyourlightson/craft-blitz": "^4.0.0"
+    "craftcms/cms": "^5.0",
+    "putyourlightson/craft-blitz": "^5.0"
   },
   "autoload": {
     "psr-4": {
