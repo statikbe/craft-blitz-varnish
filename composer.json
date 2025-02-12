@@ -17,10 +17,20 @@
     "craftcms/cms": "^5.0",
     "putyourlightson/craft-blitz": "^5.0"
   },
+  "require-dev": {
+    "craftcms/ecs": "dev-main",
+    "craftcms/phpstan": "dev-main"
+  },
   "autoload": {
     "psr-4": {
       "statikbe\\blitzvarnish\\": "src/"
     }
+  },
+  "scripts": {
+    "check-cs": "ecs check --ansi",
+    "fix-cs": "ecs check --ansi --fix",
+    "phpstan": "phpstan --memory-limit=1G",
+    "ci": "ecs check --ansi --fix && phpstan --memory-limit=1G"
   },
   "support": {
     "docs": "https://github.com/statikbe/craft-blitz-varnish",
@@ -33,5 +43,11 @@
     "developer": "Statik",
     "developerUrl": "https://github.com/statikbe",
     "changelogUrl": "https://raw.githubusercontent.com/statikbe/craft-blitz-varnish/main/CHANGELOG.md"
+  },
+  "config": {
+    "allow-plugins": {
+      "craftcms/plugin-installer": true,
+      "yiisoft/yii2-composer": true
+    }
   }
 }

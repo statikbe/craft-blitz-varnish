@@ -16,7 +16,7 @@ class Plugin extends BasePlugin
         Event::on(
             CachePurgerHelper::class,
             CachePurgerHelper::EVENT_REGISTER_PURGER_TYPES,
-            function (RegisterComponentTypesEvent $event) {
+            function(RegisterComponentTypesEvent $event) {
                 $event->types[] = VarnishCachePurger::class;
             }
         );
