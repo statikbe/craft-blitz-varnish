@@ -1,6 +1,6 @@
 # Release Notes for Blitz Varnish Cache Purger
 
-## 2.0.0 - unreleased
+## 2.0.0 - 2025-02-12
 ### Added
 - Added compatibility with Craft 5.
 
